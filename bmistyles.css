@@ -1,0 +1,37 @@
+body {
+    background-color: #2EC6D4;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+nav {
+    background-color: #1E1E1E;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+.container {
+    background-color: #1E1E1E;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+input[type="range"] {
+    width: 100%;
+}
+.result {
+    margin: 20px 0;
+    font-size: 24px;
+}
+
