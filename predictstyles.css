@@ -53,10 +53,10 @@ button:hover {
 
 /* jh */
 nav {
-    /* background-color: #1E1E1E; */
-    /* padding: 10px;
+    background-color: #1E1E1E;
+    padding: 10px;
     border-radius: 15px;
-    margin-bottom: 20px; */
+    margin-bottom: 20px; 
 }
 nav a {
     color: white;

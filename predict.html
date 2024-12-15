@@ -14,31 +14,32 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('filename='predictstyles.css') }}">
-    <link rel="stylesheet" href="predictstyles.css">
+    <link rel="stylesheet" href="General styl.css">
 </head>
 <header class=" header">
-    <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> <strong>TELEHEALTH</strong>  medical </a>
+    <!-- <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> <strong>Stroke Prediction</strong> </a> -->
 
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{ url_for('index') }}">Stroke Prediction</a>
+        <a class="navbar-brand" href="{{ url_for('index') }}"></a>
         <div class="collapse navbar-collapse">
             <ul class="navbar">
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('bmi') }}">BMI Checker</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('counsel') }}">Counsel</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url_for('cta') }}">Contact</a></li>
+                
             </ul>
         </div>
     </nav>
 
     <div id="menu-btn" class="fas fa-bars"></div>
-</header>
+
     <div class="container py-5">
-        <div class="row justify-content-center">
+        <div class="row align-items-right">
+        
             <div class="col-md-8">
-                <div class="card shadow">
-                    <div class="card-body">
+                <!-- <div class="card shadow">  -->
+                    <!-- <div class="card-body"> -->
                         <h3 class="text-center">Stroke Prediction Form</h3>
                         <form action="{{ url_for('predictAction') }}" method="POST" onsubmit="return validateForm()">
                             <div class="mb-3">
@@ -96,7 +97,7 @@
                                 <span id="glucose-error" class="text-danger"></span>
                             </div>
                             <div class="mb-3">
-                                <label>Do you smoke?</label>
+                                <label style = "color: #028090; font-weight: 700;">Do you smoke?</label>
                                 <select class="form-select" name="smoke" required>
                                     <option value="" disabled selected>Select</option>
                                     <option value="yes">Yes</option>
@@ -104,7 +105,7 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label>Have you been diagnosed with hypertension?</label>
+                                <label style = "color: #028090; font-weight: 700;">Have you been diagnosed with hypertension? </label>
                                 <select class="form-select" name="hypertension" required>
                                     <option value="" disabled selected>Select</option>
                                     <option value="yes">Yes</option>
@@ -112,7 +113,7 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label>Do you have any other heart disease?</label>
+                                <label style = "color: #028090; font-weight: 700;">Do you have any other heart disease?</label>
                                 <select class="form-select" name="heart_disease" required>
                                     <option value="" disabled selected>Select</option>
                                     <option value="yes">Yes</option>
