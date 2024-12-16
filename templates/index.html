@@ -16,7 +16,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         
          <link rel="stylesheet" href="styles.css">
-         <link rel="stylesheet" href="{{url_for(filename = 'styles.css')}}" media="screen">
+         <link rel="stylesheet" href="{{url_for('static', filename = 'General styl.css')}}" media="screen">
   
         <!-- Font awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -44,14 +44,9 @@
               <a class="nav-link pred" href="{{url_for('predict')}}">Predict</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url_for('counsel')}}">Counselling</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('bmi') }}">BMI Checker</a>
               </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url_for('contact')}}">Contact</a>
-            </li>
+            
           </ul>
         </div>
     </nav> 
@@ -77,26 +72,8 @@
      </div>
      </section>
 
-       <!-- Footer -->
+      
     
-  <footer id="footer">
-    <div class="foot">
-      <a href="https://www.instagram.com/" class="insta" target="_blank">
-        <i class="footer-icon fab fa-instagram fa-0.5x"></i>
-      </a>
-      <a href="https://www.facebook.com/" class="fb" target="_blank">
-        <i class="footer-icon fab fa-facebook-f fa-0.5x"></i>
-      </a>
-      <a href="https://www.twitter.com/" class="twtr" target="_blank">
-        <i class="footer-icon fab fa-twitter fa-0.5x" ></i>
-      </a>
-      <a href="https://mail.google.com/" class="mail" target="_blank">
-        <i class="footer-icon fas fa-envelope fa-0.5x"></i>
-      </a>
-    </div>
-    <div>
-        <p class="copyright">© Copyright Stroke Prediction</p>
-    </div>
-  </footer>
+
   </body>
 </html>
