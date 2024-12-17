@@ -6,17 +6,12 @@
     <title>BMI Calculator</title>
 
      <!-- Stylesheet -->
-     <link rel = "stylesheet" href = "bmistyles.css">
+     <link rel = "stylesheet" href = "/static/bmistyles.css">
      <link rel="stylesheet" href="{{url_for('static', filename = 'bmistyle.css')}}" media="screen">
 
 </head>
 <body>
-    <!-- <nav>
-        <a href="home.html">Home</a>
-        <a href="predict.html">Predict</a>
-        <a href="counsel.html">Counsel</a>
-    </nav> -->
-
+   
     <nav class="navbar navbar-expand-lg navbar-light ">
         <header>Stroke prediction</header>
             <!-- <a class="navbar-brand" "Stroke prediction" </a> -->
@@ -50,7 +45,8 @@
     </div>
 
     <!--Script-->
-    <script src = "bmi.js" charset = "utf-8"></script>
+    <script src="{{ url_for('static', filename='bmi.js') }}"></script>
+    <script src = "/static/bmi.js" charset = "utf-8"></script>
  
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* General styles  */
+/* predict styles  */
 body {
     font-family: 'Ubuntu', sans-serif;
     background-color: #f8f9fa;
@@ -14,11 +14,11 @@ body {
 
 /* Navbar */
 .navbar {
-    background-color: #a8e6cf;
-    padding: 5px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    font-size: 25px;
+    /* background-color: #a8e6cf; */
+    /* padding: 5px; */
+    /* border-radius: 5px; */
+    /* margin-bottom: 20px; */
+    font-size: 35px;
     
 }
 
@@ -35,7 +35,7 @@ body {
 }
 
 .navbar-nav .nav-link:hover {
-    color: #05668d;
+    color: #09300886;
 }
 
 /* Header */
@@ -44,16 +44,26 @@ h3 {
     font-weight: 900;
     color: #05668d; 
     margin-bottom: 30px;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 30px;
 }
 
 /* Form */
 form {
-    /* background-color: #ffffff; */
-    padding: 30px;
-    border-radius: 8px;
+    margin: 20px ;
+    padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: left;
+    font-size: 20px;
+
 }
+
+.card-body{
+    height: 180;
+}
+
 
 .form-label {
     color: #028090;

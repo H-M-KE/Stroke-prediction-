@@ -7,6 +7,14 @@ from sklearn.metrics import accuracy_score, r2_score
 # Load your dataset
 data = pd.read_csv("stroke_prediction_dataset.csv")
 
+# # new
+# print(data.dtypes)
+
+# categorical_columns =['Gender', 'Smoking_Status']
+
+# data = pd.get_dummies(data, columns=categorical_columns, drop_first=True)
+# # //////
+
 # Display the first few rows of the dataset
 print(data.head())
 
