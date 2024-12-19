@@ -93,8 +93,5 @@ def predictAction():
     return render_template('predict.html', a=result_message)
     
     
-
-   
-
 if __name__ == '__main__':
     app.run(debug=True)
