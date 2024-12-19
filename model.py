@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 import joblib
+from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score, r2_score
 
 # Load your dataset
@@ -29,6 +30,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 model = RandomForestClassifier(random_state=42)
 model.fit(X_train, y_train)
 
+
+
 # Make predictions on the test data
 y_pred = model.predict(X_test)
 
@@ -51,7 +54,8 @@ for feature, importance in importance_dict.items():
     print(f"{feature}: {importance * 100:.4f}")
 # Save the trained model to a file
 joblib.dump(model, 'stroke_prediction.pkl')
+joblib.dump(LabelEncoder, 'label_encoders.pkl')
 print("Model trained and saved as 'stroke_prediction_model.pkl'")
-
+print("Encoder saved as 'label_encoders.pkl'" )
 
 # print(data.columns)

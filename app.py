@@ -8,22 +8,24 @@ app = Flask(__name__)
 
 # Load the model
 model = joblib.load('stroke_prediction.pkl')
+label_encoders = joblib.load('label_encoders.pkl')
 
 # LabelEncoder for categorical features like gender, marital_status, etc.
 label_encoders = {
-    'gender': LabelEncoder(),
-    'marital_status': LabelEncoder(),
-    'work_type': LabelEncoder(),
-    'residence_type': LabelEncoder(),
-    'smoke': LabelEncoder()
+    'Gender': LabelEncoder(),
+    'Marital Status': LabelEncoder(),
+    'Work Type': LabelEncoder(),
+    'Residence Type': LabelEncoder(),
+    'Smoking Status': LabelEncoder()
 }
 
 # 
-label_encoders['gender'].fit(['male', 'female'])
-label_encoders['marital_status'].fit(['married', 'single', 'divorced'])
-label_encoders['work_type'].fit(['self-employed', 'employed', 'unemployed'])
-label_encoders['residence_type'].fit(['urban', 'rural'])
-label_encoders['smoke'].fit(['no', 'yes'])
+label_encoders['Gender'].fit(['male', 'female'])
+
+label_encoders['Marital Status'].fit(['married', 'single', 'divorced'])
+label_encoders['Work Type'].fit(['self-employed', 'employed', 'unemployed'])
+label_encoders['Residence Type'].fit(['urban', 'rural'])
+label_encoders['Smoking Status'].fit(['no', 'yes'])
 # 
 
 @app.route('/')
@@ -53,29 +55,34 @@ def predictAction():
     hypertension = request.form['hypertension']
     heart_disease = request.form['heart_disease']
     # convert 'yes'/'no' to 1/0
+    gender = 1 if gender == 'male' else 0
+    marital_status =1 if marital_status == 'married' else (2 if marital_status =='divorced' else 0)
+    work_type = 1 if work_type == 'self-employment' else ( 2 if work_type == 'unemployed' else 0)
+    residence_type =1 if residence_type == 'urban' else 0
+    smoke = 1 if smoke == 'yes' else 0
     hypertension = 1 if hypertension == 'yes' else 0
     heart_disease = 1 if heart_disease == 'yes' else 0
     
-    # Handle categorical data using LabelEncoder
-    gender = label_encoders['gender'].transform([gender])[0]
-    marital_status = label_encoders['marital_status'].transform([marital_status])[0]
-    work_type = label_encoders['work_type'].transform([work_type])[0]
-    residence_type = label_encoders['residence_type'].transform([residence_type])[0]
-    smoke = label_encoders['smoke'].transform([smoke])[0]
-
-    # Convert numeric inputs to floats
-    age = float(age)
-    bmi = float(bmi)
-    glucose = float(glucose)
-    hypertension = int(hypertension)  # Assuming hypertension is either 0 or 1
-    heart_disease = int(heart_disease)  # Same for heart_disease
-
-    # Create the input array for the model
-    input_array = np.array([[gender, age, hypertension, heart_disease, marital_status, work_type, residence_type, glucose, bmi, smoke]])
-
+    
+    input_df = pd.DataFrame([{
+         'Age': age,
+         'Gender': gender,
+         'Hypertension': hypertension,
+         'Heart Disease': heart_disease,
+         'Marital Status': marital_status,
+         'Work Type': work_type,
+         'Residence Type': residence_type,
+         'Average Glucose Level': glucose,
+         'Body Mass Index (BMI)': bmi,
+         'Smoking Status': smoke
+     }])
+    
+    
     # Make the prediction
-    pred_stroke = model.predict(input_array)
+    pred_stroke = model.predict(input_df)
     result = int(pred_stroke[0])
+    
+    # prediction = model.predict(input_features)
 
     # Prepare the result message
     if result == 0:
@@ -84,6 +91,10 @@ def predictAction():
         result_message = f"{name}, you will get stroke."
 
     return render_template('predict.html', a=result_message)
+    
+    
+
+   
 
 if __name__ == '__main__':
     app.run(debug=True)
