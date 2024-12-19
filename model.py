@@ -52,10 +52,20 @@ importance_dict = dict(zip(features, feature_importances))
 print("Feature importances:")
 for feature, importance in importance_dict.items():
     print(f"{feature}: {importance * 100:.4f}")
+
 # Save the trained model to a file
-joblib.dump(model, 'stroke_prediction.pkl')
-joblib.dump(LabelEncoder, 'label_encoders.pkl')
-print("Model trained and saved as 'stroke_prediction_model.pkl'")
-print("Encoder saved as 'label_encoders.pkl'" )
+# joblib.dump(model, 'stroke_prediction.pkl')
+# joblib.dump(LabelEncoder, 'label_encoders.pkl')
+# print("Model trained and saved as 'stroke_prediction_model.pkl'")
+# print("Encoder saved as 'label_encoders.pkl'" )
+
+# Save the trained model to a file with compression
+joblib.dump(model, 'stroke_prediction.pkl', compress=3)
+print("Model trained and saved as 'stroke_prediction.pkl' with compression level 3")
+
+# Save the LabelEncoder
+joblib.dump(model, 'label_encoders.pkl', compress=3)
+print("LabelEncoder saved as 'label_encoders.pkl' with compression level 3")
+
 
 # print(data.columns)
